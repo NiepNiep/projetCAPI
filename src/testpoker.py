@@ -13,7 +13,7 @@ class Poker:
     @param tab: a tab containing all the available cards to play in the poker
     """
     online = False
-    tab = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "interro"}
+    tab = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "??"}
     pseudo =""
     mode = 0
     cpt = "0"
