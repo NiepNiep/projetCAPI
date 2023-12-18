@@ -16,14 +16,16 @@ class Poker:
     tab = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "??"}
     pseudo =""
     mode = 0
-    cpt = "0"
 
     def init():
-        nbjoueur = input("enter the number of players")
+        nbjoueur = int(input("enter the number of players:"))
         print(nbjoueur)
-
+        cpt = 0
         for x in range(nbjoueur):
             cpt = cpt + 1
-            print("joueur", cpt, "")
+            print("tache", cpt, "")
+            for y in range(nbjoueur):
+                choix = input("choissez une carte")
 
     
+    init()
