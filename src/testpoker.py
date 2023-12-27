@@ -106,7 +106,7 @@ class Poker:
             for _ in range(game.player_number):
                 choice = input("Choose a card: ")
                 game.card_votes[choice] += 1
-            game.player_choices += game.task[i] + game.find_winning_card()
+            game.player_choices += game.tasks[i] + game.find_winning_card()
 
         self.json_save()
 
