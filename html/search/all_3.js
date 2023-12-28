@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_5fsave_3',['json_save',['../classtestpoker_1_1Poker.html#a6482f760e48508b251200d7e8766bbec',1,'testpoker::Poker']]]
+  ['find_5fwinning_5fcard_4',['find_winning_card',['../classtestpoker_1_1PokerModel.html#a60ccf9673a7a01c64c249a09eda84b79',1,'testpoker::PokerModel']]]
 ];

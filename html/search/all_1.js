@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['find_5fwinning_5fcard_1',['find_winning_card',['../classtestpoker_1_1Poker.html#a76b352cff741d46eb7115d3e4cecf753',1,'testpoker::Poker']]]
+  ['connect_1',['connect',['../classtestpoker_1_1PokerClient.html#ae2f1f252b3fd1884943bec16420c2289',1,'testpoker::PokerClient']]]
 ];

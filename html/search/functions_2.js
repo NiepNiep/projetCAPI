@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['init_10',['init',['../classtestpoker_1_1Poker.html#a0139e53ae6626d0922e4e52cc3d7f6bd',1,'testpoker::Poker']]]
+  ['display_5ftext_27',['display_text',['../classtestpoker_1_1GameDisplay.html#a9fa56899e38c8bdb8432a31d8856192e',1,'testpoker::GameDisplay']]],
+  ['draw_5fstart_5fbutton_28',['draw_start_button',['../classtestpoker_1_1GameDisplay.html#aa7b2b861ad8d20e078a387f4e5666261',1,'testpoker::GameDisplay']]]
 ];
