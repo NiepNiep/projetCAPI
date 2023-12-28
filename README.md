@@ -1,20 +1,21 @@
 # projetCAPI
 Documentation is in the other githbranch named "gh-page"
 
-# Fonctionnement du projet
-- run le code
-- cliquer sur le bouton "start" de la fenetre pygame
-- participer au jeu dans la console python
-- Saisir le nombre de joueur puis leurs noms
-- Saisir le nombre de tâches puis leurs intitulés
-- Choisir entre les modes de jeu "strict" et "average"
-- Pour chaque tâches listés un système de votes par cartes est mis en place
-- Les joueurs saisissent tour à tour la carte qu'ils souhaitent pour chaque tâches, par soucis de respect du jeu veuillez saisir des cartes présentes dans la liste suivante {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "??"}
-- Une carte finale est attribué à la tâche en fonction des votes des joueurs et du mode de jeu utilisé
-- Un fichier json "player_choices.json" résumant la partie de planning poker est créé
-- Fermer la fenêtre pygame ou arreter le code pour mettre fin au jeu
-- Le fichier json "player_choices.json" sera remplacé après une nouvelle partie
+# Project Workflow:
 
-  # Mode de jeu
-  Strict : La valeur d'une tâche est validé à l'unanimité, si les joueurs ne sont pas tous d'accord sur la carte séléctionné lors du vote d'une tâche alors ils doivent revoter jusqu'à l'unanimité
-  Moyenne : La valeur d'une tâche est la moyenne des cartes séléctionné par les joueurs pour cette tâche, si la valeur de la moyenne n'est pas présente dans la liste des cartes alors on séléctionne la carte la plus proche de cette valeur.
+Run the code.
+Click on the "start" button in the Pygame window.
+Engage in the game through the Python console.
+Enter the number of players and their names.
+Input the number of tasks and their titles.
+Choose between the game modes "strict" and "average."
+For each listed task, a voting system using cards is implemented.
+Players input, one by one, the card they prefer for each task. For game integrity, kindly use cards from the following list: {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "coffee", "??"}.
+A final card is assigned to the task based on players' votes and the selected game mode.
+A JSON file named "player_choices.json," summarizing the planning poker session, is generated.
+Close the Pygame window or stop the code to conclude the game.
+The "player_choices.json" file will be replaced after a new game session.
+
+# Game Modes:
+Strict: Task value requires unanimous agreement. If players disagree on the selected card for a task, they must revote until unanimous agreement is reached.
+Average: Task value is the average of the cards selected by players for that task. If the average value isn't present in the card list, the nearest card value is chosen.
