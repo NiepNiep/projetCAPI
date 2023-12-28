@@ -6,7 +6,7 @@
 import json
 import pygame
 import sys
-
+import socket
 
 class PokerModel:
     """
@@ -26,6 +26,7 @@ class PokerModel:
             tasks (list): Contains the descriptions of each task.
             mode (str): Indicates the selected mode of the game (e.g., 'strict', 'average').
             game_start (bool): Tracks whether the game has started or not.
+            online(bool): Tracks whether the game is online or not.
         """
         self.player_choices = []
         self.player_names = []
@@ -36,6 +37,7 @@ class PokerModel:
         self.tasks = []
         self.mode = ""
         self.game_start = False
+        self.online = False
 
     def play_strict_mode(self):
         """
@@ -130,6 +132,10 @@ class PokerModel:
         @param: None
         @return: None
         """
+        self.online = input("Do you want to play online? (y/n): ")
+        if model.online:
+            print("server started")
+            poker_server.start()
         self.player_number = int(input("Enter the number of players: "))
         for i in range(1, self.player_number + 1):
             name = input("Enter the name for Player {}: ".format(i))
@@ -188,6 +194,77 @@ class GameDisplay:
         text_rect.topleft = (x, y)
         surface.blit(text_surface, text_rect)
 
+class PokerServer:
+    """
+    @class PokerServer
+    @brief Class representing the server of the application, containing the server logic.
+    """
+    def __init__(self):
+        """
+        @brief Constructor method initializing the PokerServer class.
+        """
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.host = '127.0.0.1'  # Localhost
+        self.port = 12345  # Choose a port number
+
+    def start(self):
+        """
+        @brief Start the server
+        @param: None
+        @return: None
+        """
+        self.server.bind((self.host, self.port))
+        self.server.listen()
+        print("Server started, waiting for connections...")
+
+        conn, addr = self.server.accept()
+        print(f"Connected to {addr}")
+
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(b"Received: " + data)
+
+            # Process the received data (JSON data in this case)
+            received_data = json.loads(data.decode())
+            # Perform operations with the received data as needed
+            print("Received Data:", received_data)
+
+        conn.close()
+
+class PokerClient:
+    """
+    @class PokerClient
+    @brief Class representing the client of the application, containing the client logic.
+    """
+    def __init__(self):
+        """
+        @brief Constructor method initializing the PokerClient class.
+        @param: None
+        @return: None
+        """
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.host = '127.0.0.1'  # Server's IP address
+        self.port = 12345  # Same port number as the server
+
+    def connect(self):
+        """
+        @brief Connect to the server
+        @param: None
+        @return: None
+        """
+        self.client.connect((self.host, self.port))
+
+    def send_data(self, data):
+        """
+        @brief Send data to the server
+        @param data: data to send
+        @return: None
+        """
+        self.client.sendall(json.dumps(data).encode())
+        received = self.client.recv(1024)
+        print("Server Response:", received.decode())
 
 class GameController:
     """
@@ -229,6 +306,7 @@ class GameController:
 # Code principal
 if __name__ == "__main__":
     model = PokerModel()
+    poker_server = PokerServer()
     view = GameDisplay()
     controller = GameController(model, view)
 
